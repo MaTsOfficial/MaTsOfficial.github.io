@@ -87,6 +87,14 @@
                 height: 100px;
                 font-size: 20px;
             }
+            .end {
+                background: #363636;
+                color: white;
+                position: absolute;
+                margin: 1500px 0px;
+                width: 2000px;
+                height: 200px;
+            }
         </style>
     </head>
     <body>
@@ -113,6 +121,9 @@
             <p style="margin-left: 200px;">Do you like us? Say it to us!</p>
             <p style="margin-left: 400px;">YouTube</p>
         </div>
+        <div class="end">
+            <p>Email us at officialmats.noreply@gmail.com</p>
+        </div>
         <script>
             function colorChange() {
                 if (scrollY > 525) {
@@ -124,13 +135,15 @@
                     document.getElementById("navButton1").style.color = "white";
                     document.getElementById("navButton2").style.color = "white";
                 }
+                if (scrollY > 800) {
+                screenY = 800;
+                }
                 setTimeout(colorChange, 100);
             }
             colorChange();
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-                window.location = "https://matsofficial.github.io/PixelZone.html";
+                window.location = "https://matsofficial.github.io/mobile.html";
             }
-
         </script>
     </body>
 </html>
