@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NoteMode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #listToggle {
+            border: none;
+            outline: none;
+            background: #949494;
+        }
+        body {font-family: arial;}
+        .edit button {
+            background: white;
+            outline: none;
+            font-size: 20px;
+            border: none;
+            border-bottom: 3px solid #949494;
+            border-radius: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        #add {
+            border: 3px solid #949494;
+            border-radius: 10px;
+            color: black;
+            transition: 0.2s;
+            cursor: default;
+        }
+        #add:hover {
+            background: #949494;
+            color: white;
+        }
+        .addedContent h1 {
+            color: #949494;
+            font-size: 50px;
+        }
+        .addedContent {
+            overflow-y: scroll;
+            border: 3px solid #949494;
+            height: 700px;
+            width: 700px;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit">
+        <button id="add" onclick="add()">Add</button>
+        <textarea id="data"></textarea>
+        <button id="list" onclick="type0(); typeToggle()">List</button>
+        <button id="header" onclick="type1(); typeToggle()">Header</button>
+        <button id="p" onclick="type2(); typeToggle()">text</button>
+    </div>
+    <div class="addedContent"></div>
+    <script src="main.js"></script>
+</body>
+</html>
