@@ -14,33 +14,36 @@ function add() {
         if (type === 1) {addedElements[amount].innerHTML = "<h1>"+data+"</h1>";}
         if (type === 2) {addedElements[amount].innerHTML = "<p>"+data+"</p>";}
         addedElements[amount].addEventListener("click", function () {parent.removeChild(this);}, false)
-        data = document.getElementById("data").value = "";
+        //data = document.getElementById("data").value = "";
     }
 }
 function typeToggle() {
     if (type === 0) {
-        document.getElementById("list").style.background = "#949494";
-        document.getElementById("header").style.background = "white";
-        document.getElementById("p").style.background = "white";
+        document.getElementById("list").style.background = "#00ffff";
+        document.getElementById("header").style.background = "transparent";
+        document.getElementById("p").style.background = "transparent";
         document.getElementById("list").style.color = "white";
         document.getElementById("header").style.color = "black";
         document.getElementById("p").style.color = "black";
+        document.getElementById("dataPlaceholder").innerHTML = "list";
     }
     if (type === 1) {
-        document.getElementById("header").style.background = "#949494";
-        document.getElementById("list").style.background = "white";
-        document.getElementById("p").style.background = "white";
+        document.getElementById("header").style.background = "#00ffff";
+        document.getElementById("list").style.background = "transparent";
+        document.getElementById("p").style.background = "transparent";
         document.getElementById("list").style.color = "black";
         document.getElementById("header").style.color = "white";
         document.getElementById("p").style.color = "black";
+        document.getElementById("dataPlaceholder").innerHTML = "header";
     }
     if (type === 2) {
-        document.getElementById("list").style.background = "white";
-        document.getElementById("header").style.background = "white";
-        document.getElementById("p").style.background = "#949494";
+        document.getElementById("list").style.background = "transparent";
+        document.getElementById("header").style.background = "transparent";
+        document.getElementById("p").style.background = "#00ffff";
         document.getElementById("p").style.color = "white";
         document.getElementById("header").style.color = "black";
         document.getElementById("list").style.color = "black";
+        document.getElementById("dataPlaceholder").innerHTML = "text";
     }
 }
 

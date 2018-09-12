@@ -9,50 +9,110 @@
         #listToggle {
             border: none;
             outline: none;
-            background: #949494;
+            background: #00ffff;
         }
-        body {font-family: arial;}
+        body {
+            font-family: arial;
+            background: #dadada;
+            margin: 0px;
+            overflow: hidden;
+            }
         .edit button {
-            background: white;
+            background: transparent;
             outline: none;
             font-size: 20px;
             border: none;
-            border-bottom: 3px solid #949494;
-            border-radius: 10px;
-            transition: 0.2s;
+            border-bottom: 3px solid #00ffff;
+            /*border-radius: 10px;*/
+            transition: 0.2s border;
             cursor: pointer;
+            margin: 50px;
+            position: absolute;
+            transition: 0.2s transform;
+        }
+        .edit button:hover {
+            border-bottom: 1px solid #009266;
+            transform: scale(1.4);
+            z-index: 10000;
         }
         #add {
-            border: 3px solid #949494;
-            border-radius: 10px;
+            border: 3px solid #00ffff;
+            /*border-radius: 10px;*/
             color: black;
             transition: 0.2s;
             cursor: default;
+            border-radius: 100px;
+            background: transparent;
+            position: absolute;
         }
         #add:hover {
-            background: #949494;
+            background: #00ffff;
             color: white;
+            transform: scale(3) rotate(180deg);
+            z-index: 0;
+        }
+        .edit {
+            background: linear-gradient(90deg,white, transparent);
+            height: 100px;
+            position: absolute;
+            width: 800px;
         }
         .addedContent h1 {
-            color: #949494;
+            color: #00ffff;
             font-size: 50px;
+            border-left: 10px solid #00ffff;
         }
         .addedContent {
             overflow-y: scroll;
-            border: 3px solid #949494;
-            height: 700px;
-            width: 700px;
+            border: 3px solid gray;
+            height: 800px;
+            width: 800px;
             overflow-x: hidden;
+            position: absolute;
+            margin: 100px 0px;
+            background: white;
         }
+        #data {
+            width: 300px;
+            margin: 100px;
+        }
+        ::-webkit-scrollbar {
+            background: #ffffff;
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ffff;
+        }
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid gray;
+            outline: none;
+            color: black;
+            transition: 0.3s;
+            transform: skew(180deg);
+        }
+        input:focus {
+            border-bottom: 2px solid #00ffff;
+            transform: skew(0deg);
+        }
+        .sidebar {
+            margin: 100px 800px;
+            position: absolute;
+        }
+        #dataPlaceholder {color: gray;}
     </style>
 </head>
 <body>
     <div class="edit">
-        <button id="add" onclick="add()">Add</button>
-        <textarea id="data"></textarea>
-        <button id="list" onclick="type0(); typeToggle()">List</button>
-        <button id="header" onclick="type1(); typeToggle()">Header</button>
-        <button id="p" onclick="type2(); typeToggle()">text</button>
+        <button id="add" onclick="add()">+</button>
+        <button id="list" onclick="type0(); typeToggle()" style="margin-left: 100px;">List</button>
+        <button id="header" onclick="type1(); typeToggle()" style="margin-left: 150px;">Header</button>
+        <button id="p" onclick="type2(); typeToggle()" style="margin-left: 235px;">Text</button>
+    </div>
+    <div class="sidebar">
+        <div style="margin: 75px 100px; position: absolute;"><span>Enter your </span><span id="dataPlaceholder">list</span><span> here.</span></div>
+        <input id="data" type="text" >
     </div>
     <div class="addedContent"></div>
     <script src="main.js"></script>
