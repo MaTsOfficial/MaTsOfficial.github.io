@@ -16,6 +16,7 @@
             background: #dadada;
             margin: 0px;
             overflow: hidden;
+            font-weight:lighter;
             }
         .edit button {
             background: transparent;
@@ -31,7 +32,7 @@
             transition: 0.2s transform;
         }
         .edit button:hover {
-            border-bottom: 1px solid #009266;
+            border-bottom: 1px solid #00ffff;
             transform: scale(1.4);
             z-index: 10000;
         }
@@ -48,7 +49,7 @@
         #add:hover {
             background: #00ffff;
             color: white;
-            transform: scale(3) rotate(180deg);
+            transform: scaleX(3) scaleY(3) rotate(180deg);
             z-index: 0;
         }
         .edit {
@@ -58,9 +59,7 @@
             width: 800px;
         }
         .addedContent h1 {
-            color: #00ffff;
             font-size: 50px;
-            border-left: 10px solid #00ffff;
         }
         .addedContent {
             overflow-y: scroll;
@@ -83,7 +82,7 @@
         ::-webkit-scrollbar-thumb {
             background: #00ffff;
         }
-        input {
+        input[type="text" i]{
             background: transparent;
             border: none;
             border-bottom: 2px solid gray;
@@ -92,7 +91,7 @@
             transition: 0.3s;
             transform: skew(180deg);
         }
-        input:focus {
+        input[type="text" i]:focus {
             border-bottom: 2px solid #00ffff;
             transform: skew(0deg);
         }
@@ -101,6 +100,51 @@
             position: absolute;
         }
         #dataPlaceholder {color: gray;}
+        #color {
+            -webkit-appearance: none;
+            background: gray;
+            outline: none;
+            border: none;
+            position: absolute;
+            margin: -70px 100px;
+            width: 50px;
+            height: 50px;
+            transition: 0.3s;
+        }
+        #color:hover {
+            transform: scale(1.3) rotate(180deg);
+        }
+        .texttypes input {
+            -webkit-appearance: none;
+            border: 1px solid gray;
+            width: 20px;
+            height: 20px;
+            outline: none;
+            transition: 0.2s;
+            background-color: gray;
+            background-repeat: no-repeat;
+            image-rendering: pixelated;
+            position: absolute;
+        }
+        .texttypes input:checked {
+            border-color: #00ffff;
+            transform: scale(1.5);
+        }
+        .texttypes input:hover {
+            transform: scale(2);
+        }
+        .texttypes input:disabled {
+            cursor: not-allowed;
+        }
+        .texttypes {
+            position: absolute;
+            margin: 0px 0px;
+        }
+        #link {
+            position: absolute;
+            margin: 100px;
+            width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -109,10 +153,24 @@
         <button id="list" onclick="type0(); typeToggle()" style="margin-left: 100px;">List</button>
         <button id="header" onclick="type1(); typeToggle()" style="margin-left: 150px;">Header</button>
         <button id="p" onclick="type2(); typeToggle()" style="margin-left: 235px;">Text</button>
+        <input type="radio" name="type">
+        <input type="radio" name="type">
+        <input type="radio" name="type">
+        <input type="radio" name="type">
     </div>
     <div class="sidebar">
         <div style="margin: 75px 100px; position: absolute;"><span>Enter your </span><span id="dataPlaceholder">list</span><span> here.</span></div>
-        <input id="data" type="text" >
+        <input id="data" type="text">
+        <input type="text" id="link" placeholder="Copy and paste or type a link here.">
+        <input type="color" id="color" value="#00ffff">
+        <div class="texttypes">
+        <input type="radio" name="textmargin" style="background: url(aling-left.png); margin: 0px 100px;">
+        <input type="radio" name="textmargin" style="background: url(aling-center.png); background-position-x: -1px; margin: 0px 135px;">
+        <input type="radio" name="textmargin" style="background: url(aling-right.png); margin: 0px 170px;">
+        <input type="checkbox" name="textWeight" style="background: url(bold.png); background-position: -1px; margin: 35px 100px;">
+        <input type="checkbox" name="textWeight" style="background: url(italic.png); background-position: -1px; margin: 35px 135px;">
+        <input type="checkbox" name="textWeight" style="background: url(underline.png); background-position: -1px; margin: 35px 170px;">
+        </div>
     </div>
     <div class="addedContent"></div>
     <script src="main.js"></script>
