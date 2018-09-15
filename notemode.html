@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>NoteMode</title>
+    <link rel="icon" href="icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         #listToggle {
@@ -166,6 +167,21 @@
         .addedContent a:hover {
             text-decoration: none;
         }
+        .editObjects {
+            position: absolute;
+            margin: 200px 100px;
+        }
+        .editObjects button {
+            background: gray;
+            outline: none;
+            border: 3px solid gray;
+            border-radius: 100px;
+        }
+        .editObjects button:hover {
+            background: #00ffff;
+            border-color: #00ffff;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -193,6 +209,12 @@
         <input type="checkbox" name="textWeight" style="background: url(underline.png); background-position: -1px; margin: 35px 170px;">
         </div>
         <!--<textarea id="finalproduct"></textarea>-->
+        <div class="editObjects" style="display: none;">
+            <span>One element selected.</span>
+            <br>
+            <button onclick="editElement(false)">Save changes</button>
+            <button onclick="editElement(true)" style="background: red; border-color: red;">Delete</button>
+        </div>
     </div>
     <div class="addedContent"></div>
     <script src="main.js"></script>
