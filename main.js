@@ -6,7 +6,7 @@ var type = document.getElementsByName("type");
 var doccolor = document.getElementById("color").value;
 var textmargin = document.getElementsByName("textmargin");
 var textWeight = document.getElementsByName("textWeight");
-var link = document.getElementById("link").value;
+var link = document.getElementById("link");
 var currentElement;
 var data = document.getElementById("data");
 var newType = document.getElementsByName("newType");
@@ -16,7 +16,6 @@ function add() {
     doccolor = document.getElementById("color").value;
     textmargin = document.getElementsByName("textmargin");
     textWeight = document.getElementsByName("textWeight");
-    link = document.getElementById("link").value;
     if (data.value != "") {
         amount += 1;
         addedElements[amount] = document.createElement("div")
@@ -31,7 +30,7 @@ function add() {
         if (type[2].checked) {addedElements[amount].innerHTML = "<p>"+data.value+"</p>";}
         if (type[3].checked) {addedElements[amount].innerHTML = "<img src='"+data.value+"'>";}
         if (type[4].checked) {
-            addedElements[amount].innerHTML = "<a href='"+link+"' target='null'>"+data.value+"</a>";
+            addedElements[amount].innerHTML = "<a href='"+link.value+"' target='null'>"+data.value+"</a>";
             addedElements[amount].style.color = color;
         }
         if (textmargin[0].checked) {addedElements[amount].style.textAlign = "left";}
@@ -91,3 +90,16 @@ function editElement(remove) {
     document.getElementsByClassName("editObjects")[0].style.display= "none";
     currentElement = null;
 }
+
+document.addEventListener("click", function () {
+if (type[4].checked) {
+    link.style.display = "block";
+}else {
+    link.style.display = "none";
+}
+if (type[3].checked) {
+    document.getElementById("googleLink").style.display = "block";
+}else {
+    document.getElementById("googleLink").style.display = "none";
+}
+}, false)
